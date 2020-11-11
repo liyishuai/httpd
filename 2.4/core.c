@@ -4811,6 +4811,8 @@ static int default_handler(request_rec *r)
             return HTTP_FORBIDDEN;
         }
 
+        return HTTP_OK;
+
         ap_update_mtime(r, r->finfo.mtime);
         ap_set_last_modified(r);
         ap_set_etag(r);

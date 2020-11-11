@@ -158,8 +158,15 @@ RUN set -eux; \
 	\
 	mkdir -p src; \
 	tar -xf httpd.tar.bz2 -C src --strip-components=1; \
-	rm httpd.tar.bz2; \
-	cd src; \
+	rm httpd.tar.bz2
+
+COPY core.c src/server
+COPY http_protocol.c src/modules/http
+COPY mod_dav.c src/modules/dav/main
+COPY mod_proxy_http.c src/modules/proxy
+COPY repos.c modules/dav/fs
+
+RUN	cd src; \
 	\
 	patches() { \
 		while [ "$#" -gt 0 ]; do \

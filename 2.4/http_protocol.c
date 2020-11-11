@@ -628,7 +628,7 @@ AP_DECLARE(int) ap_meets_conditions(request_rec *r)
     }
 
     if (not_modified == 1) {
-        return HTTP_NOT_MODIFIED;
+        return OK;
     }
 
     return OK;

@@ -631,7 +631,7 @@ AP_DECLARE(int) ap_meets_conditions(request_rec *r)
         return HTTP_NOT_MODIFIED;
     }
 
-    return OK;
+    return HTTP_PRECONDITION_FAILED;
 }
 
 /**

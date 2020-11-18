@@ -557,7 +557,7 @@ AP_DECLARE(int) ap_meets_conditions(request_rec *r)
      */
     cond = ap_condition_if_match(r, r->headers_out);
     if (AP_CONDITION_NOMATCH == cond) {
-        return HTTP_PRECONDITION_FAILED;
+        return OK;
     }
 
     /* Else if a valid If-Unmodified-Since request-header field was given

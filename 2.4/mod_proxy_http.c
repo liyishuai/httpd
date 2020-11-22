@@ -1690,6 +1690,8 @@ int ap_proxy_http_process_response(proxy_http_req_t *req)
             return proxy_status;
         }
 
+        return OK;
+
         /* send body - but only if a body is expected */
         if ((!r->header_only) &&                   /* not HEAD request */
             (proxy_status != HTTP_NO_CONTENT) &&      /* not 204 */

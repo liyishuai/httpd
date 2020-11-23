@@ -213,7 +213,6 @@ static void add_cl(apr_pool_t *p,
                       NULL);
     ap_xlate_proto_to_ascii(buf, strlen(buf));
     e = apr_bucket_pool_create(buf, strlen(buf), p, bucket_alloc);
-    APR_BRIGADE_INSERT_TAIL(header_brigade, e);
 }
 
 #ifndef CRLF_ASCII

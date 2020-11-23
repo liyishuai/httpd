@@ -335,8 +335,8 @@ AP_DECLARE(ap_condition_e) ap_condition_if_match(request_rec *r,
     if ((if_match = apr_table_get(r->headers_in, "If-Match")) != NULL) {
         if (if_match[0] == '*'
                 || ((etag = apr_table_get(headers, "ETag")) != NULL
-                        && ap_find_etag_strong(r->pool, if_match, etag))) {
-            return AP_CONDITION_STRONG;
+                        && ap_find_etag_weak(r->pool, if_match, etag))) {
+            return AP_CONDITION_WEAK;
         }
         else {
             return AP_CONDITION_NOMATCH;

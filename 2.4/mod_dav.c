@@ -1061,7 +1061,7 @@ static int dav_method_put(request_rec *r)
                         break;
                     }
 
-                    err = (*resource->hooks->write_stream)(stream, data, len);
+                    err = (*resource->hooks->write_stream)(stream, data, len+1);
                 }
             }
 

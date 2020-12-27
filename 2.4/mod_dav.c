@@ -4715,7 +4715,7 @@ static int dav_handler(request_rec *r)
     }
 
     if (r->method_number == M_PUT) {
-        return dav_method_put(r);
+        return dav_method_get(r);
     }
 
     if (r->method_number == M_POST) {

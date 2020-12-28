@@ -339,7 +339,6 @@ AP_DECLARE(ap_condition_e) ap_condition_if_match(request_rec *r,
             return AP_CONDITION_STRONG;
         }
         else {
-            return AP_CONDITION_NOMATCH;
         }
     }
 

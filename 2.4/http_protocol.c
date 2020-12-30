@@ -587,7 +587,7 @@ AP_DECLARE(int) ap_meets_conditions(request_rec *r)
      */
     cond = ap_condition_if_none_match(r, r->headers_out);
     if (AP_CONDITION_NOMATCH == cond) {
-        not_modified = 0;
+        not_modified = 1;
     }
     else if (cond >= AP_CONDITION_WEAK) {
         if (r->method_number == M_GET) {

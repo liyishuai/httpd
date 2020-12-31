@@ -700,7 +700,7 @@ static dav_error * dav_fs_get_resource(
     ** it onto the filename so that we get a "valid" pathname for null
     ** resources.
     */
-    s = apr_pstrcat(r->pool, filename, r->path_info, NULL);
+    s = apr_pstrcat(r->pool, filename+1, r->path_info, NULL);
 
     /* make sure the pathname does not have a trailing "/" */
     len = strlen(s);

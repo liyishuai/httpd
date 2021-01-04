@@ -406,24 +406,11 @@ AP_DECLARE(ap_condition_e) ap_condition_if_none_match(request_rec *r,
             return AP_CONDITION_STRONG;
         }
 
-        /* See section 13.3.3 for rules on how to determine if two entities tags
-         * match. The weak comparison function can only be used with GET or HEAD
-         * requests.
-         */
-        if (r->method_number == M_GET) {
             if ((etag = apr_table_get(headers, "ETag")) != NULL) {
-                if (apr_table_get(r->headers_in, "Range")) {
-                    if (ap_find_etag_strong(r->pool, if_nonematch, etag)) {
-                        return AP_CONDITION_STRONG;
-                    }
-                }
-                else {
                     if (ap_find_etag_weak(r->pool, if_nonematch, etag)) {
                         return AP_CONDITION_WEAK;
                     }
-                }
             }
-        }
 
         else if ((etag = apr_table_get(headers, "ETag")) != NULL
                 && ap_find_etag_strong(r->pool, if_nonematch, etag)) {

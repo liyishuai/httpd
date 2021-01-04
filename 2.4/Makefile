@@ -5,6 +5,8 @@ CONTAINERS=$(shell docker ps -f name=$(REPO) -q)
 
 ifneq ($(BRANCH), master)
 	REPO:=$(REPO):$(BRANCH)
+else
+	REPO:=$(REPO):latest
 endif
 
 all: clean

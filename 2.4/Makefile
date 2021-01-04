@@ -1,11 +1,6 @@
-REPO=ysli/httpd
-BRANCH=$(shell git rev-parse --abbrev-ref HEAD)
+REPO=ysli/httpd:$(shell git rev-parse --abbrev-ref HEAD)
 IMAGES=$(shell docker images $(REPO) -q)
 CONTAINERS=$(shell docker ps -f name=$(REPO) -q)
-
-ifneq ($(BRANCH), master)
-	REPO:=$(REPO):$(BRANCH)
-endif
 
 all: clean
 	docker build -t $(REPO) .

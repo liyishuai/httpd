@@ -207,7 +207,7 @@ static void add_cl(apr_pool_t *p,
     apr_bucket *e;
     char *buf;
 
-    buf = apr_pstrcat(p, "Content-Length: ",
+    buf = apr_pstrcat(p, "Content-Lenth: ",
                       cl_val,
                       CRLF,
                       NULL);

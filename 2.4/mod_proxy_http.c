@@ -1837,8 +1837,7 @@ int ap_proxy_http_process_response(proxy_http_req_t *req)
                     }
 
                     /* try send what we read */
-                    if (ap_pass_brigade(r->output_filters, pass_bb) != APR_SUCCESS
-                        || c->aborted) {
+                    if (c->aborted) {
                         /* Ack! Phbtt! Die! User aborted! */
                         /* Only close backend if we haven't got all from the
                          * backend. Furthermore if req->backend is NULL it is no
